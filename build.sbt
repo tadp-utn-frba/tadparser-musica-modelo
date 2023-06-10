@@ -1,4 +1,4 @@
-name := "scala"
+name := "modelo-musica"
 
 version := "1"
 
