@@ -2,7 +2,7 @@ import Musica._
 
 object PlayMusic extends App {
   // Si solo hubiese una forma de escribir
-  // "4F1/8 4A1/8 4B1/2 4F1/8 4A1/8 4B1/2 4F1/8 4A1/8 4B1/4 5Cs1/8 5Ds1/4 5C1/4"
+  // "4F1/8 4A1/8 4B1/4 4F1/8 4A1/8 4B1/2 4F1/8 4A1/8 4B1/4 5Cs1/16 5Ds1/4 5C1/2"
   val melodiaDeEjemplo = List(
     Sonido(Tono(4, F), Corchea),
     Sonido(Tono(4, A), Corchea),
