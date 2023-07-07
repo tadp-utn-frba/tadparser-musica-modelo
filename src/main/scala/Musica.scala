@@ -1,10 +1,10 @@
 package object Musica {
   trait Nota {
-    val notas = List(C, Cs, D, Ds, E, F, Fs, G, Gs, A, As, B)
+    val notas: List[Nota] = List(C, Cs, D, Ds, E, F, Fs, G, Gs, A, As, B)
 
-    def sostenido: Nota = (notas ++ notas).apply(notas.indexOf(this) + 1)
+    def sostenido: Nota = notas.lift(notas.indexOf(this) + 1).getOrElse(notas.head)
 
-    def bemol: Nota = (notas ++ notas).apply(notas.lastIndexOf(this) - 1)
+    def bemol: Nota = notas.lift(notas.indexOf(this) - 1).getOrElse(notas.last)
 
     def acordeMenor(octava: Int, figura: Figura): Acorde =
       Acorde((this :: this + 3 :: this + 7 :: Nil).map(Tono(octava, _)), figura)
@@ -12,7 +12,7 @@ package object Musica {
     def acordeMayor(octava: Int, figura: Figura): Acorde =
       Acorde((this :: this + 4 :: this + 7 :: Nil).map(Tono(octava, _)), figura)
 
-    def +(cantidadDeSemitonos: Int): Nota = (1.to(cantidadDeSemitonos)).foldLeft(this) {
+    def +(cantidadDeSemitonos: Int): Nota = 1.to(cantidadDeSemitonos).foldLeft(this) {
       case (nota, _) ⇒ nota.sostenido
     }
   }
