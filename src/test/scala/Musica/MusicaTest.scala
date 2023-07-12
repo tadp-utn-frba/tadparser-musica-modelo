@@ -1,7 +1,7 @@
 package Musica
 
 import org.scalatest.freespec.AnyFreeSpec
-import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
+import org.scalatest.matchers.should.Matchers._
 
 class MusicaTest extends AnyFreeSpec {
   "Notas" - {
